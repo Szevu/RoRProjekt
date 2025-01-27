@@ -1,0 +1,164 @@
+<div class="navbar-container">
+  <ul class="navbar">
+    <li><%= link_to 'Użytkownicy', users_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Pokoje', rooms_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Kategorie', categories_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Rezerwacje', reservations_path, class: 'navbar-link' %></li>
+  </ul>
+</div>
+
+<style>
+    /* Pasek nawigacji */
+    .navbar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #007bff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        background-color: #007bff;
+    }
+
+    .navbar li {
+        margin: 0 20px;
+    }
+
+    .navbar-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        display: block;
+        border-radius: 5px;
+    }
+
+    .navbar-link:hover {
+        background-color: #0056b3;
+        transition: background-color 0.3s;
+    }
+
+    /* Dostosowanie nagłówka i opisu poniżej paska */
+    h1 {
+        margin-top: 100px; /* Odstęp od paska */
+        font-size: 2rem;
+        color: #333;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-link {
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
+<br><br>
+
+<p class="room-detail">
+  <strong>Nazwa pokoju:</strong>
+  <%= @room.name %>
+</p>
+
+<p class="room-detail">
+  <strong>Cena:</strong>
+  <%= @room.price %>
+</p>
+
+<p class="room-detail">
+  <strong>Kategorie:</strong>
+  <%= @room.categories.map(&:name).join(', ') %>
+</p>
+
+<!-- Linki do edycji i usunięcia pokoju -->
+<div class="room-actions">
+  <%= link_to 'Edytuj pokój', edit_room_path(@room), class: 'btn-edit' %>
+
+</div>
+
+<style>
+    /* Stylowanie szczegółów pokoju */
+    .room-detail {
+        font-size: 1rem;
+        padding: 15px;
+        margin: 10px auto;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        max-width: 500px; /* Maksymalna szerokość dla boxów */
+        width: 100%;
+    }
+
+    /* Wyróżnienie etykiet */
+    .room-detail strong {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    /* Efekt po najechaniu */
+    .room-detail:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    /* Stylowanie tekstu */
+    .room-detail p {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        line-height: 1.5;
+    }
+
+    /* Stylowanie dla przycisków Edytuj i Usuń */
+    .room-actions {
+        margin-top: 20px;
+        font-size: 1rem;
+        text-align: center; /* Ustawi przyciski obok siebie */
+    }
+
+    .btn-edit, .btn-delete {
+        text-decoration: none;
+        padding: 8px 16px; /* Mniejsza wielkość przycisków */
+        font-size: 0.9rem; /* Mniejsza czcionka */
+        border-radius: 5px;
+        margin: 0 10px; /* Odstęp między przyciskami */
+        display: inline-block;
+    }
+
+    .btn-edit {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-edit:hover {
+        background-color: #218838;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+</style>

@@ -1,0 +1,93 @@
+<div class="navbar-container">
+  <ul class="navbar">
+    <li><%= link_to 'Użytkownicy', users_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Pokoje', rooms_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Kategorie', categories_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Rezerwacje', reservations_path, class: 'navbar-link' %></li>
+  </ul>
+</div>
+
+<style>
+    /* Pasek nawigacji */
+    .navbar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #007bff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        background-color: #007bff;
+    }
+
+    .navbar li {
+        margin: 0 20px;
+    }
+
+    .navbar-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        display: block;
+        border-radius: 5px;
+    }
+
+    .navbar-link:hover {
+        background-color: #0056b3;
+        transition: background-color 0.3s;
+    }
+
+    /* Dostosowanie nagłówka i opisu poniżej paska */
+    h1 {
+        margin-top: 100px; /* Odstęp od paska */
+        font-size: 2rem;
+        color: #333;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-link {
+            margin-bottom: 10px;
+        }
+    }
+</style>
+<p style="color: green; text-align: center; font-size: 1.2rem; margin-top: 20px;">
+  <%= notice %>
+</p>
+
+<% content_for :title, "Categories" %>
+
+<h1 style="text-align: center; font-size: 2rem; color: #333; margin-bottom: 30px;">Kategorie</h1>
+
+<div id="categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
+  <% @categories.each do |category| %>
+    <div style="border: 1px solid #ddd; padding: 20px; border-radius: 8px; width: 200px; text-align: center; background-color: #f9f9f9;">
+      <%= render category %>
+      <p style="margin-top: 15px;">
+        <%= link_to "Pokaż", category, style: "color: #007bff; text-decoration: none; font-size: 1rem;" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Dodaj kategorię", new_category_path, style: "display: inline-block; text-align: center; margin-top: 30px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; width: auto; font-size: 1rem;" %>

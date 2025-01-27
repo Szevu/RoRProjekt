@@ -1,0 +1,95 @@
+<div class="navbar-container">
+  <ul class="navbar">
+    <li><%= link_to 'Użytkownicy', users_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Pokoje', rooms_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Kategorie', categories_path, class: 'navbar-link' %></li>
+    <li><%= link_to 'Rezerwacje', reservations_path, class: 'navbar-link' %></li>
+  </ul>
+</div>
+
+<style>
+    /* Pasek nawigacji */
+    .navbar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #007bff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        background-color: #007bff;
+    }
+
+    .navbar li {
+        margin: 0 20px;
+    }
+
+    .navbar-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        display: block;
+        border-radius: 5px;
+    }
+
+    .navbar-link:hover {
+        background-color: #0056b3;
+        transition: background-color 0.3s;
+    }
+
+    /* Dostosowanie nagłówka i opisu poniżej paska */
+    h1 {
+        margin-top: 100px; /* Odstęp od paska */
+        font-size: 2rem;
+        color: #333;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-link {
+            margin-bottom: 10px;
+        }
+    }
+</style>
+<%= form_with(model: category) do |form| %>
+  <% if category.errors.any? %>
+    <div style="color: red; background-color: #f8d7da; padding: 15px; border-radius: 5px; margin-bottom: 20px; max-width: 600px; margin: 0 auto;">
+      <h2 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;"><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li style="font-size: 1rem; margin: 5px 0;"><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
+    <%= form.label :name, "Nazwa", style: "display: block; font-weight: bold; margin-bottom: 8px;" %>
+    <%= form.text_field :name, style: "width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem;" %>
+  </div>
+
+  <div style="max-width: 600px; margin: 0 auto;">
+    <%= form.submit "Zapisz", style: "width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer;" %>
+  </div>
+<% end %>

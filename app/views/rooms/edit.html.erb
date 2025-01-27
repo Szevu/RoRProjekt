@@ -1,0 +1,94 @@
+<% content_for :title, "Editing room" %>
+
+<h1>Edytuj pokój</h1>
+
+<%= render "form", room: @room %>
+
+<br>
+
+<div class="back-links">
+  <%= link_to "Pokaż pokój", @room, class: "btn btn-info" %> |
+  <%= link_to "Powrót", rooms_path, class: "btn btn-secondary" %>
+</div>
+
+<style>
+    /* Stylowanie nagłówka */
+    h1 {
+        font-size: 2rem;
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Stylowanie linków */
+    .back-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+    .btn-info:hover {
+        background-color: #138496;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6368;
+    }
+
+    /* Stylowanie formularza */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
