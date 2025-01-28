@@ -2,31 +2,7 @@
 
 <h1 class="text-center mb-4">Nowy pokój</h1>
 
-<%= form_for @room do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "Nazwa pokoju" %>
-    <%= f.text_field :name, class: 'form-control', required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :price, "Cena pokoju" %>
-    <%= f.number_field :price, class: 'form-control', required: true, step: '0.01' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :category_ids, "Wybierz kategorie" %><br>
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
-      <div class="form-check">
-        <%= b.check_box class: 'form-check-input' %>
-        <%= b.label class: 'form-check-label' %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Utwórz pokój", class: 'btn btn-primary' %>
-  </div>
-<% end %>
+<%= render "form", room: @room %>
 
 <br>
 
@@ -52,19 +28,6 @@
 
     .btn-secondary:hover {
         background-color: #5a6368;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        color: white;
-        padding: 12px;
-        border: none;
-        border-radius: 5px;
-        width: 100%;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
     }
 
     .text-center {
@@ -113,7 +76,13 @@
         background-color: #0056b3;
     }
 
-    .form-check {
-        margin-bottom: 10px;
+    .category-error {
+        color: #dc3545;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 0.875rem;
+        margin-top: 10px;
     }
 </style>

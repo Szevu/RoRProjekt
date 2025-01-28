@@ -2,7 +2,6 @@
   <% if room.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
-
       <ul>
         <% room.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -21,10 +20,19 @@
     <%= form.text_field :price %>
   </div>
 
-
   <div>
     <%= form.label :category_ids, "Kategorie", style: "display: block" %>
-    <%= form.collection_select :category_ids, Category.all, :id, :name, { include_blank: true }, { multiple: true, style: "width: 100%; height: auto;" } %>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+      <div style="display: flex; align-items: center;">
+        <%= b.check_box style: "margin-right: 5px;" %>
+        <%= b.label %>
+      </div>
+    <% end %>
+    <% if room.errors[:category_ids].any? %>
+      <div class="category-error" style="color: red; margin-top: 10px;">
+        <%= room.errors[:category_ids].first %>
+      </div>
+    <% end %>
   </div>
 
   <div>
