@@ -1,81 +1,32 @@
-<div class="navbar-container">
-  <ul class="navbar">
-    <li><%= link_to 'Użytkownicy', users_path, class: 'navbar-link' %></li>
-    <li><%= link_to 'Pokoje', rooms_path, class: 'navbar-link' %></li>
-    <li><%= link_to 'Kategorie', categories_path, class: 'navbar-link' %></li>
-    <li><%= link_to 'Rezerwacje', reservations_path, class: 'navbar-link' %></li>
-  </ul>
-</div>
-
-<style>
-    /* Pasek nawigacji */
-    .navbar-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #007bff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        background-color: #007bff;
-    }
-
-    .navbar li {
-        margin: 0 20px;
-    }
-
-    .navbar-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        display: block;
-        border-radius: 5px;
-    }
-
-    .navbar-link:hover {
-        background-color: #0056b3;
-        transition: background-color 0.3s;
-    }
-
-    /* Dostosowanie nagłówka i opisu poniżej paska */
-    h1 {
-        margin-top: 100px; /* Odstęp od paska */
-        font-size: 2rem;
-        color: #333;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 30px;
-    }
-
-    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar-link {
-            margin-bottom: 10px;
-        }
-    }
-</style>
 <% content_for :title, "Nowy pokój" %>
 
 <h1 class="text-center mb-4">Nowy pokój</h1>
 
-<%= render "form", room: @room %>
+<%= form_for @room do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Nazwa pokoju" %>
+    <%= f.text_field :name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, "Cena pokoju" %>
+    <%= f.number_field :price, class: 'form-control', required: true, step: '0.01' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category_ids, "Wybierz kategorie" %><br>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+      <div class="form-check">
+        <%= b.check_box class: 'form-check-input' %>
+        <%= b.label class: 'form-check-label' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Utwórz pokój", class: 'btn btn-primary' %>
+  </div>
+<% end %>
 
 <br>
 
@@ -84,7 +35,6 @@
 </div>
 
 <style>
-    /* Stylowanie nagłówka */
     h1 {
         font-size: 2rem;
         color: #333;
@@ -92,7 +42,6 @@
         margin-bottom: 30px;
     }
 
-    /* Przycisk do powrotu */
     .btn-secondary {
         background-color: #6c757d;
         color: white;
@@ -105,7 +54,19 @@
         background-color: #5a6368;
     }
 
-    /* Centrum dla linku do powrotu */
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
     .text-center {
         text-align: center;
     }
@@ -114,7 +75,6 @@
         margin-top: 20px;
     }
 
-    /* Form stylowanie */
     form {
         max-width: 500px;
         margin: 0 auto;
@@ -151,5 +111,9 @@
 
     input[type="submit"]:hover {
         background-color: #0056b3;
+    }
+
+    .form-check {
+        margin-bottom: 10px;
     }
 </style>

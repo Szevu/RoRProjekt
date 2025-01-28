@@ -7,70 +7,6 @@
   </ul>
 </div>
 
-<style>
-    /* Pasek nawigacji */
-    .navbar-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #007bff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        background-color: #007bff;
-    }
-
-    .navbar li {
-        margin: 0 20px;
-    }
-
-    .navbar-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        display: block;
-        border-radius: 5px;
-    }
-
-    .navbar-link:hover {
-        background-color: #0056b3;
-        transition: background-color 0.3s;
-    }
-
-    /* Dostosowanie nagłówka i opisu poniżej paska */
-    h1 {
-        margin-top: 100px; /* Odstęp od paska */
-        font-size: 2rem;
-        color: #333;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 30px;
-    }
-
-    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar-link {
-            margin-bottom: 10px;
-        }
-    }
-</style>
 <% content_for :title, "Nowy użytkownik" %>
 
 <h1 class="text-center mb-4">Nowy użytkownik</h1>
@@ -84,7 +20,6 @@
 </div>
 
 <style>
-    /* Stylowanie nagłówka */
     h1 {
         font-size: 2rem;
         color: #333;
@@ -92,7 +27,6 @@
         margin-bottom: 30px;
     }
 
-    /* Przyciski */
     .btn {
         padding: 8px 16px;
         font-size: 1rem;
@@ -110,7 +44,6 @@
         background-color: #5a6368;
     }
 
-    /* Centrum dla linku do powrotu */
     .text-center {
         text-align: center;
     }
@@ -119,14 +52,10 @@
         margin-top: 20px;
     }
 
-    /* Form stylowanie (opcjonalne, w zależności od tego jak wygląda formularz) */
     form {
         max-width: 500px;
         margin: 0 auto;
         padding: 20px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .form-group {

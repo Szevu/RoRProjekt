@@ -7,70 +7,7 @@
   </ul>
 </div>
 
-<style>
-    /* Pasek nawigacji */
-    .navbar-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #007bff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
 
-    .navbar {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        background-color: #007bff;
-    }
-
-    .navbar li {
-        margin: 0 20px;
-    }
-
-    .navbar-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        display: block;
-        border-radius: 5px;
-    }
-
-    .navbar-link:hover {
-        background-color: #0056b3;
-        transition: background-color 0.3s;
-    }
-
-    /* Dostosowanie nagłówka i opisu poniżej paska */
-    h1 {
-        margin-top: 100px; /* Odstęp od paska */
-        font-size: 2rem;
-        color: #333;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 30px;
-    }
-
-    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar-link {
-            margin-bottom: 10px;
-        }
-    }
-</style>
 <p style="color: green"><%= notice %></p>
 
 <div class="reservation-details-card">
@@ -94,50 +31,50 @@
 </div>
 
 <style>
-    /* Karta na szczegóły rezerwacji */
+
     .reservation-details-card {
-        max-width: 600px;  /* Ograniczenie szerokości karty */
-        margin: 0 auto;    /* Wyśrodkowanie karty na stronie */
+        max-width: 600px;
+        margin: 0 auto;
         background-color: #f9f9f9;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Nagłówek karty */
+
     .reservation-details-card h1 {
         color: #333;
         font-size: 1.8rem;
         margin-bottom: 20px;
     }
 
-    /* Tekst szczegółów */
+
     .reservation-details-card p {
         font-size: 1.1rem;
         color: #555;
         margin-bottom: 10px;
     }
 
-    /* Kontener dla przycisków edytuj i usuń */
+
     .btn-container {
         display: flex;
-        justify-content: center;  /* Wyśrodkowanie przycisków */
-        gap: 10px; /* Rozstawienie przycisków */
+        justify-content: center;
+        gap: 10px;
         margin-top: 20px;
     }
 
-    /* Kontener dla przycisku Powrót */
+
     .back-btn-container {
         margin-top: 20px;
-        text-align: center; /* Wyśrodkowanie przycisku */
+        text-align: center;
     }
 
-    /* Stylowanie przycisków */
+
     .btn {
         padding: 10px 20px;
         border-radius: 6px;
         font-size: 1rem;
-        text-decoration: none;  /* Usunięcie podkreślenia z linków */
+        text-decoration: none;
     }
 
     .btn-warning {
@@ -158,12 +95,12 @@
         border: none;
     }
 
-    /* Efekt hover dla przycisków */
+
     .btn:hover {
         opacity: 0.9;
     }
 
-    /* Zapewnienie, że wszystkie przyciski będą tej samej wielkości */
+
     .btn-sm {
         font-size: 1rem;
         padding: 10px 15px;
@@ -173,7 +110,7 @@
         margin-top: 20px;
     }
 
-    /* Usunięcie podkreślenia z linków */
+
     a {
         text-decoration: none;
     }

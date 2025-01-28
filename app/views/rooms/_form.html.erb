@@ -21,7 +21,7 @@
     <%= form.text_field :price %>
   </div>
 
-  <!-- Pole wyboru kategorii (z "multiple") -->
+
   <div>
     <%= form.label :category_ids, "Kategorie", style: "display: block" %>
     <%= form.collection_select :category_ids, Category.all, :id, :name, { include_blank: true }, { multiple: true, style: "width: 100%; height: auto;" } %>

@@ -7,70 +7,7 @@
   </ul>
 </div>
 
-<style>
-    /* Pasek nawigacji */
-    .navbar-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #007bff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
 
-    .navbar {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        background-color: #007bff;
-    }
-
-    .navbar li {
-        margin: 0 20px;
-    }
-
-    .navbar-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        display: block;
-        border-radius: 5px;
-    }
-
-    .navbar-link:hover {
-        background-color: #0056b3;
-        transition: background-color 0.3s;
-    }
-
-    /* Dostosowanie nagłówka i opisu poniżej paska */
-    h1 {
-        margin-top: 100px; /* Odstęp od paska */
-        font-size: 2rem;
-        color: #333;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 30px;
-    }
-
-    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar-link {
-            margin-bottom: 10px;
-        }
-    }
-</style>
 <%= form_with(model: reservation) do |form| %>
   <% if reservation.errors.any? %>
     <div class="error-messages">
@@ -108,7 +45,7 @@
     <%= form.date_select :end_date, class: "form-input" %>
   </div>
 
-  <!-- Przycisk Zapisz -->
+
   <div class="form-group">
     <%= form.submit "Zapisz", class: "form-submit" %>
   </div>
@@ -116,7 +53,7 @@
 <% end %>
 
 <style>
-    /* Styl dla całego formularza */
+
     .form-container {
         max-width: 600px;
         margin: 0 auto;
@@ -138,7 +75,7 @@
         margin-bottom: 8px;
     }
 
-    /* Stylowanie inputów */
+
     .form-input {
         width: 100%;
         padding: 12px;
@@ -148,7 +85,7 @@
         transition: border-color 0.3s ease;
     }
 
-    /* Focusing na inputach */
+
     .form-input:focus {
         border-color: #007bff;
         outline: none;
@@ -176,7 +113,7 @@
         margin: 5px 0;
     }
 
-    /* Przycisk Zapisz */
+
     .form-submit {
         padding: 12px;
         background-color: #007bff;

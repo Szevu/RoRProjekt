@@ -6,91 +6,25 @@
     <li><%= link_to 'Rezerwacje', reservations_path, class: 'navbar-link' %></li>
   </ul>
 </div>
+<br><br>
 
-<style>
-    /* Pasek nawigacji */
-    .navbar-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #007bff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        background-color: #007bff;
-    }
-
-    .navbar li {
-        margin: 0 20px;
-    }
-
-    .navbar-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        display: block;
-        border-radius: 5px;
-    }
-
-    .navbar-link:hover {
-        background-color: #0056b3;
-        transition: background-color 0.3s;
-    }
-
-    /* Dostosowanie nagłówka i opisu poniżej paska */
-    h1 {
-        margin-top: 100px; /* Odstęp od paska */
-        font-size: 2rem;
-        color: #333;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 30px;
-    }
-
-    /* Responsywność: Zmniejszamy rozmiar czcionki na mniejszych ekranach */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar-link {
-            margin-bottom: 10px;
-        }
-    }
-</style> <br> <br>
-<p style="color: green"><%= notice %></p>
+<p><%= notice %></p>
 
 <%= render @user %>
 
 <div class="action-buttons">
   <%= link_to "Edytuj użytkownika", edit_user_path(@user), class: "btn btn-warning btn-sm" %>
   <%= link_to "Wróć do użytkowników", users_path, class: "btn btn-secondary btn-sm" %>
-
   <%= button_to "Usuń", @user, method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Czy na pewno chcesz usunąć tego użytkownika?" } %>
 </div>
 
 <style>
-    /* Nagłówek dla powiadomienia */
     p {
         font-size: 1rem;
         color: green;
         margin-bottom: 20px;
     }
 
-    /* Kontener dla przycisków */
     .action-buttons {
         margin-top: 20px;
         display: flex;
@@ -101,18 +35,21 @@
 
     .action-buttons a,
     .action-buttons button {
-        text-decoration: none;
         padding: 8px 15px;
         font-size: 0.9rem;
         border-radius: 5px;
         display: inline-block;
+        text-decoration: none;
     }
 
-    /* Kolorystyka dla przycisków */
+    .btn {
+        color: white;
+        border-color: transparent;
+        transition: background-color 0.3s ease;
+    }
+
     .btn-warning {
         background-color: #ffc107;
-        border-color: #ffc107;
-        color: white;
     }
 
     .btn-warning:hover {
@@ -121,8 +58,6 @@
 
     .btn-secondary {
         background-color: #6c757d;
-        border-color: #6c757d;
-        color: white;
     }
 
     .btn-secondary:hover {
@@ -131,8 +66,6 @@
 
     .btn-danger {
         background-color: #dc3545;
-        border-color: #dc3545;
-        color: white;
     }
 
     .btn-danger:hover {
